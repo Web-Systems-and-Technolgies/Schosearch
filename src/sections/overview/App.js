@@ -76,20 +76,6 @@ const Main = memo(function Main() {
   );
 });
 
-function Posts() {
-  const { posts, onDeletePost } = usePosts();
-
-  const handleDelete = (postId) => {
-    onDeletePost(postId);
-  };
-
-  return (
-    <section>
-      <List posts={posts} handleDelete={handleDelete} />
-    </section>
-  );
-}
-
 function FormAddPost() {
   const { onAddPost, onClearPosts } = usePosts();
   const [title, setTitle] = useState("");
@@ -97,32 +83,14 @@ function FormAddPost() {
   const [body, setBody] = useState("");
   const [moreinfo, setMoreinfo] = useState("");
 
-  const handleSubmit = async function (e) {
+  const handleSubmit = function (e) {
     e.preventDefault();
     if (!body || !title || !location || !moreinfo) return;
-
-    // Save the post data to the 'scholar' table in Supabase
-    try {
-      const { data, error } = await supabase
-        .from("scholar")
-        .insert([{ title, location, body, moreinfo }]);
-
-      if (error) {
-        console.error("Error creating post:", error);
-        return;
-      }
-
-      // Add the newly created post to the posts state
-      onAddPost(data[0]);
-
-      // Clear the input fields
-      setTitle("");
-      setLocation("");
-      setBody("");
-      setMoreinfo("");
-    } catch (error) {
-      console.error("Error creating post:", error);
-    }
+    onAddPost({ title, location, body, moreinfo });
+    setTitle("");
+    setLocation("");
+    setBody("");
+    setMoreinfo("");
   };
 
   return (
@@ -141,6 +109,20 @@ function FormAddPost() {
       <textarea value={body} onChange={(e) => setBody(e.target.value)} placeholder="Description" />
       <button type="submit">Post Scholar</button>
     </form>
+  );
+}
+
+function Posts() {
+  const { posts, onDeletePost } = usePosts();
+
+  const handleDelete = (postId) => {
+    onDeletePost(postId);
+  };
+
+  return (
+    <section>
+      <List posts={posts} handleDelete={handleDelete} />
+    </section>
   );
 }
 
