@@ -12,6 +12,23 @@ import { applyPagination } from "src/utils/apply-pagination";
 
 const now = new Date();
 
+const useUsers = (page, rowsPerPage, searchName) => {
+  return useMemo(() => {
+    let filteredData = data;
+    if (searchName) {
+      const searchQuery = searchName.toLowerCase();
+      filteredData = data.filter((user) => user.name.toLowerCase().includes(searchQuery));
+    }
+    return applyPagination(filteredData, page, rowsPerPage);
+  }, [page, rowsPerPage, searchName]);
+};
+
+const useUserIds = (users) => {
+  return useMemo(() => {
+    return users.map((user) => user.id);
+  }, [users]);
+};
+
 const data = [
   {
     id: "5e8tyjt87ac47eed253091be10cb",
@@ -32,7 +49,7 @@ const data = [
     avatar: "/assets/alyssa.jpg",
     createdAt: subDays(subHours(now, 7), 1).getTime(),
     email: "schosearch@info.com",
-    name: "Alyssa Timbang",
+    name: "Alyssa Bonachita",
   },
   {
     id: "5etyjtawdy87ac47eed253091be10cb",
@@ -119,23 +136,6 @@ const data = [
     name: "User",
   },
 ];
-
-const useUsers = (page, rowsPerPage, searchName) => {
-  return useMemo(() => {
-    let filteredData = data;
-    if (searchName) {
-      const searchQuery = searchName.toLowerCase();
-      filteredData = data.filter((user) => user.name.toLowerCase().includes(searchQuery));
-    }
-    return applyPagination(filteredData, page, rowsPerPage);
-  }, [page, rowsPerPage, searchName]);
-};
-
-const useUserIds = (users) => {
-  return useMemo(() => {
-    return users.map((user) => user.id);
-  }, [users]);
-};
 
 const Page = () => {
   const [page, setPage] = useState(0);
