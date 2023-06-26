@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Lilita+One&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "IBM Plex Mono", sans-serif;
+  color: #222;
+  line-height: 1.25;
+  background: #efefef;
+  padding: 32px;
+}
+
+.schotitle {
+  color: #444950;
+}
+
+.loc {
+  color: #717171;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.fake-dark-mode {
+  filter: invert(100%);
+  transition: all 0.5s;
+}
+
+.fake-dark-mode body {
+  background-color: efefef;
+}
+
+.fake-dark-mode * {
+  color: #252529;
+}
+
+.fake-dark-mode button {
+  background-color: #d0d0d0;
+  border: none;
+}
+
+.description {
+  font-family: "Inter", sans-serif;
+}
+
+.fake-dark-mode main li:hover {
+  /* border: 1px solid white; */
+  background-color: #dadad6;
+}
+
+.fake-dark-mode form {
+  background-color: #dadad6;
+  /* border: 1px solid black; */
+}
+
+.fake-dark-mode input {
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+}
+
+.fake-dark-mode textarea {
+  background-color: black;
+  color: white;
+}
+
+.fake-dark-mode .loc {
+  color: #bbb6af;
+}
+
+.fake-dark-mode .schotitle {
+  color: #ba6634;
+}
+
+.countColor {
+  color: #ff6c37;
+}
+
+.fake-dark-mode .countColor {
+  color: #0093c8;
+}
+
+.fake-dark-mode .deletebtn {
+  color: black;
+}
+
+.deletebtn {
+  margin-top: 10px;
+  padding: 4px 8px;
+}
+
+.fake-dark-mode .deletebtn:hover {
+  color: #55371b;
+  transition: all 0.5s;
+}
+
+section {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+header {
+  margin-bottom: 32px;
+  font-weight: bold;
+
+  justify-content: space-between;
+  display: flex;
+}
+
+h1 {
+  font-size: 26px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+h1 span {
+  font-size: 140%;
+  line-height: 1;
+}
+
+h2 {
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+h3 {
+  text-transform: capitalize;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+header div {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+header button {
+  font-size: 14px;
+}
+
+.form {
+  padding: 24px;
+  background-color: #fff4e6;
+  display: flex;
+  gap: 24px;
+  margin-bottom: 40px;
+  border-radius: 10px;
+}
+
+main {
+  margin-bottom: 40px;
+}
+
+aside {
+  margin-bottom: 40px;
+  opacity: 75%;
+}
+
+input,
+textarea,
+button {
+  font-size: 16px;
+  padding: 8px 12px;
+  border: none;
+  font-family: inherit;
+  color: inherit;
+  border-radius: 10px;
+  max-height: 100px;
+}
+
+.App-logo {
+  border-radius: 50px;
+}
+
+input {
+  width: 12rem;
+}
+
+*::placeholder {
+  color: #999;
+}
+
+*:focus {
+  outline: 2px solid #ffa94d;
+  border-radius: 2px;
+}
+
+textarea {
+  flex: 1;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.darkmode {
+  background-color: white;
+  padding: 1px;
+  border-radius: 10px;
+  background-color: #5a4ae3;
+  border: none;
+}
+
+button {
+  border: 1px solid #5a4ae3;
+  background-color: #5a4ae3;
+  font-weight: 700;
+  padding: 9px 24px;
+  cursor: pointer;
+  border-radius: 10px;
+  color: white;
+}
+
+h3 {
+  text-transform: capitalize;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+main ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 32px;
+}
+
+main li {
+  border: 1px solid #f6f6f7;
+  background-color: #f6f6f7;
+  padding: 16px 20px;
+  border-radius: 10px;
+}
+
+main li:hover {
+  background-color: #fff4e6;
+}
+
+aside ul {
+  font-size: 90%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+aside li {
+  border: 1px solid #ffe8cc;
+  padding: 4px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h2 + button {
+  margin-bottom: 24px;
+}
+
+aside li button {
+  padding: 4px 8px;
+  font-size: 14px;
+}
+
+footer {
+  font-family: "Lilita One", cursive;
+}
